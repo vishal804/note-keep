@@ -5,7 +5,7 @@ import { useAuth } from "../../context/auth-context";
 import "./auth.css";
 
 const Signup = () => {
-  const [error, setError] = useState("Nothing");
+  const [error, setError] = useState("");
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
@@ -142,7 +142,7 @@ const Signup = () => {
           <div>{error}</div>
           <div className="login-store flex flex-space-between">
             <label htmlFor="store">
-              <input type="checkbox" />I accept all terms & conditions
+              <input type="checkbox" required />I accept all terms & conditions
             </label>
           </div>
 

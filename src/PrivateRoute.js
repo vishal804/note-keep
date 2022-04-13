@@ -1,10 +1,14 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "./context/auth-context";
 
 const PrivateRoute = () => {
   const { authState } = useAuth();
-
-  return authState.user ? <Outlet /> : <Navigate to="/signin" replace />;
+  const location = useLocation();
+  return authState.user ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/signin" state={{ from: location }} replace />
+  );
 };
 
 export { PrivateRoute };
