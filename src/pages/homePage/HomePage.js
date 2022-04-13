@@ -9,9 +9,9 @@ const HomePage = () => {
   } = useNote();
 
   return (
-    <main class="page-container">
+    <main className="page-container">
       <SideNavbar />
-      <section class="component-section">
+      <section className="component-section">
         <CreateNote />
 
         <div>

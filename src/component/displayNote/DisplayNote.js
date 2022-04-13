@@ -11,20 +11,20 @@ const DisplayNote = ({ note }) => {
 
   return (
     <>
-      <div class="wrapper-container">
-        <div class="note-container">
-          <div class="note-title flex flex-space-between">
+      <div className="wrapper-container">
+        <div className="note-container">
+          <div className="note-title flex flex-space-between">
             <p>{note.title}</p>
             <p>
-              <i class="fas fa-map-pin"></i>
+              <i className="fas fa-map-pin"></i>
             </p>
           </div>
 
-          <div class="note-content">
+          <div className="note-content">
             <p>{note.description}</p>
           </div>
 
-          <div class="note-function flex flex-space-between">
+          <div className="note-function flex flex-space-between">
             <div className="left-navbar">
               <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
                 {note.tag}
