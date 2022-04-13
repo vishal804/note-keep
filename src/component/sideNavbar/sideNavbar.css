@@ -1,0 +1,16 @@
+.aside {
+  flex: 0 0 19.5rem;
+}
+
+.list-subheading {
+  text-align: center;
+}
+.list-subheading li {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 1rem 0;
+}
+
+.icon-style {
+  margin: 0 1rem 0 0;
+}
