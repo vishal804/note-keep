@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const addToNotesList = async (note, noteDispatch, token) => {
+export const addToNotesList = async (note, setNote, noteDispatch, token) => {
   try {
     const response = await axios.post(
       "/api/notes",
@@ -13,6 +13,7 @@ export const addToNotesList = async (note, noteDispatch, token) => {
     );
     if (response.status === 201) {
       noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
+      setNote({ ...note, title: "", description: "" });
     }
   } catch (error) {
     console.log(error);

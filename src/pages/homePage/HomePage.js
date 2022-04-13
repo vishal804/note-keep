@@ -18,7 +18,7 @@ const HomePage = () => {
           {notes.length === 0 ? (
             <div>No Notes yet</div>
           ) : (
-            notes.map((note) => <DisplayNote note={note} />)
+            notes.map((note) => <DisplayNote key={note._id} note={note} />)
           )}
         </div>
 

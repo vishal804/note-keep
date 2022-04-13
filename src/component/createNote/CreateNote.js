@@ -13,9 +13,9 @@ const CreateNote = () => {
 
   return (
     <>
-      <div class="wrapper-container">
-        <div class="note-container">
-          <div class="note-title flex flex-space-between">
+      <div className="wrapper-container">
+        <div className="note-container">
+          <div className="note-title flex flex-space-between">
             <input
               className="note-title-input"
               type="text"
@@ -25,11 +25,11 @@ const CreateNote = () => {
               onChange={(e) => setNote({ ...note, title: e.target.value })}
             />
             <p onClick={(e) => setNote({ ...note, isPinned: true })}>
-              <i class="fas fa-map-pin"></i>
+              <i className="fas fa-map-pin"></i>
             </p>
           </div>
 
-          <div class="note-content">
+          <div className="note-content">
             <textarea
               className="note-description"
               rows="5"
@@ -42,7 +42,7 @@ const CreateNote = () => {
             />
           </div>
           {/* Tags */}
-          <div class="note-function flex flex-space-between">
+          <div className="note-function flex flex-space-between">
             <div className="left-navbar">
               <div>
                 <select
@@ -83,7 +83,9 @@ const CreateNote = () => {
             <div className="right-navbar">
               <button
                 className="btn"
-                onClick={() => addToNotesList(note, noteDispatch, token)}
+                onClick={() =>
+                  addToNotesList(note, setNote, noteDispatch, token)
+                }
               >
                 Add Note
               </button>

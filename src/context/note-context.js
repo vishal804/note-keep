@@ -6,8 +6,8 @@ const useNote = () => useContext(NotesContext);
 
 const NoteProvider = ({ children }) => {
   const [note, setNote] = useState({
+    pinned: false,
     title: "",
-    content: "",
     description: "",
     tag: "Label",
     priority: "Priority",
