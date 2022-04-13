@@ -1,41 +1,36 @@
-import { createContext, useContext, useState } from "react";
+import { useState, createContext, useContext, useReducer } from "react";
+import { NotesReducer } from "../reducer/noteReducer";
 
-const NoteContext = createContext();
+const NotesContext = createContext();
+const useNote = () => useContext(NotesContext);
 
 const NoteProvider = ({ children }) => {
   const [note, setNote] = useState({
-    isPinned: false,
     title: "",
+    content: "",
     description: "",
-    tag: "Tag",
+    tag: "Label",
     priority: "Priority",
-    selectedBackgroundColor: "#faf8f8",
   });
-
-  const [edit, setEdit] = useState({
+  const [noteState, noteDispatch] = useReducer(NotesReducer, {
+    notes: [],
     isEdit: false,
     editItem: {
-      _id: null,
-      isPinned: false,
+      pinned: false,
       title: "",
       description: "",
       tag: "Tag",
       priority: "Priority",
-      selectedBackgroundColor: "#faf8f8",
     },
+    notesTrash: [],
+    notesArchive: [],
   });
 
-  const [notes, setNotes] = useState([]);
-
   return (
-    <NoteContext.Provider
-      value={{ note, setNote, notes, setNotes, edit, setEdit }}
-    >
+    <NotesContext.Provider value={{ note, setNote, noteState, noteDispatch }}>
       {children}
-    </NoteContext.Provider>
+    </NotesContext.Provider>
   );
 };
 
-const useNote = () => useContext(NoteContext);
-
-export { NoteProvider, useNote };
+export { useNote, NoteProvider };

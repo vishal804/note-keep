@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const addToNotesList = async (note, setNote, setNotes, token) => {
+export const addToNotesList = async (note, noteDispatch, token) => {
   try {
     const response = await axios.post(
       "/api/notes",
@@ -12,19 +12,18 @@ export const addToNotesList = async (note, setNote, setNotes, token) => {
       }
     );
     if (response.status === 201) {
-      setNotes(response.data.notes);
-      setNote({ ...note, title: "", description: "" });
+      noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
     }
   } catch (error) {
     console.log(error);
   }
 };
 
-export const updateNote = async (_id, note, setNote, setNotes, token) => {
+export const updateNote = async (editNote, noteState, noteDispatch, token) => {
   try {
     const response = await axios.post(
-      `/api/notes/${_id}`,
-      { note: note },
+      `/api/notes/${noteState.editItem._id}`,
+      { note: editNote },
       {
         headers: {
           authorization: token,
@@ -32,8 +31,8 @@ export const updateNote = async (_id, note, setNote, setNotes, token) => {
       }
     );
     if (response.status === 201) {
-      setNotes(response.data.notes);
-      setNote({ ...note, title: "", description: "" });
+      noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
+      noteDispatch({ type: "SHOW_EDIT_BOX", payload: !noteState.isEdit });
     }
   } catch (error) {
     console.log(error);

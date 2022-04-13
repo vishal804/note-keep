@@ -1,23 +1,28 @@
 import React from "react";
 import "./homePage.css";
-import { CreateNote, SideNavbar } from "../../component";
+import { useNote } from "../../context/note-context";
+import { CreateNote, DisplayNote, EditNote, SideNavbar } from "../../component";
 
 const HomePage = () => {
+  const {
+    noteState: { notes, isEdit },
+  } = useNote();
+
   return (
     <main class="page-container">
       <SideNavbar />
       <section class="component-section">
         <CreateNote />
 
-        {/* <div>
+        <div>
           {notes.length === 0 ? (
             <div>No Notes yet</div>
           ) : (
-            notes.map((note) => <Note note={note} />)
+            notes.map((note) => <DisplayNote note={note} />)
           )}
         </div>
 
-        {edit.isEdit && <EditNote1 />} */}
+        {isEdit && <EditNote />}
       </section>
     </main>
   );
