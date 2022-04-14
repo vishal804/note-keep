@@ -26,12 +26,12 @@ const Header = () => {
       <header>
         <nav className="navbar box-shadow">
           <div className="left-navbar">
-            <div className="logo">
-              <a href="index.html">Note Keeper</a>
-            </div>
+            <Link to="/">
+              <p>Note Keeper</p>
+            </Link>
           </div>
           <ul className="right-navbar">
-            <li class="no-show">
+            <li className="no-show">
               {authState.token ? (
                 <Link to="/">
                   <button

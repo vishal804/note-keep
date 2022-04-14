@@ -1,0 +1,34 @@
+.note-title {
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line-styling-color);
+  font-size: 1.5rem;
+}
+.note-title-input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: var(--note-bg-color);
+}
+
+.note-content {
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.note-description {
+  outline: none;
+  border: none;
+  background-color: var(--note-bg-color);
+  width: 100%;
+}
+
+.tag {
+  border: none;
+  background-color: var(--note-bg-color);
+  outline: none;
+}
+
+.note-function {
+  margin: 1rem 0;
+}
