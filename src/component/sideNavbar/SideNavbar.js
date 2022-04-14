@@ -24,7 +24,7 @@ const SideNavbar = () => {
             </li>
             <li>
               <p className="flex flex-justify-center">
-                <Link to="/homepage">
+                <Link to="/archive">
                   <i className="icon-style fas fa-archive"></i>Archive
                 </Link>
               </p>

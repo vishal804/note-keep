@@ -1,8 +1,14 @@
 import React from "react";
 import { useNote } from "../../context/note-context";
+import { useAuth } from "../../context/auth-context";
+import { archiveNote, deleteNote } from "../../utility/NoteFunction";
 
 const DisplayNote = ({ note }) => {
   const { noteState, noteDispatch } = useNote();
+
+  const {
+    authState: { token },
+  } = useAuth();
 
   const editNoteHandler = () => {
     noteDispatch({ type: "SHOW_EDIT_BOX", payload: !noteState.isEdit });
@@ -39,6 +45,14 @@ const DisplayNote = ({ note }) => {
                 onClick={() => {
                   editNoteHandler();
                 }}
+              ></i>
+              <i
+                className="icon-style fas fa-trash"
+                onClick={() => deleteNote(note, noteDispatch, token)}
+              ></i>
+              <i
+                className="icon-style fas fa-archive"
+                onClick={() => archiveNote(note, noteDispatch, token)}
               ></i>
             </div>
           </div>
