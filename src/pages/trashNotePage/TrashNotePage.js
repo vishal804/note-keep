@@ -15,7 +15,10 @@ const TrashNotePage = () => {
           {notesTrash.length !== 0 ? (
             notesTrash.map((trash) => (
               <div className="wrapper-container" key={trash._id}>
-                <div className="note-container">
+                <div
+                  className="note-container"
+                  style={{ backgroundColor: trash.color }}
+                >
                   <div className="note-title flex flex-space-between">
                     <p>{trash.title}</p>
                     <p>

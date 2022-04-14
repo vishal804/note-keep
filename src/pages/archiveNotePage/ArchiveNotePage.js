@@ -25,7 +25,10 @@ const ArchiveNotePage = () => {
           {notesArchive.length !== 0 ? (
             notesArchive.map((archive) => (
               <div className="wrapper-container" key={archive._id}>
-                <div className="note-container">
+                <div
+                  className="note-container"
+                  style={{ backgroundColor: archive.color }}
+                >
                   <div className="note-title flex flex-space-between">
                     <p>{archive.title}</p>
                     <p>

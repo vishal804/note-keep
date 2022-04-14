@@ -11,6 +11,7 @@ const NoteProvider = ({ children }) => {
     description: "",
     tag: "Label",
     priority: "Priority",
+    color: "#ecf1f3",
   });
   const [noteState, noteDispatch] = useReducer(NotesReducer, {
     notes: [],
@@ -21,6 +22,7 @@ const NoteProvider = ({ children }) => {
       description: "",
       tag: "Tag",
       priority: "Priority",
+      color: "#ecf1f3",
     },
     notesTrash: [],
     notesArchive: [],

@@ -3,6 +3,7 @@ import "./createNote.css";
 import { useAuth } from "../../context/auth-context";
 import { useNote } from "../../context/note-context";
 import { addToNotesList } from "../../utility/NoteFunction";
+import { ColorPalette } from "../index";
 
 const CreateNote = () => {
   const { note, setNote, noteDispatch } = useNote();
@@ -14,7 +15,7 @@ const CreateNote = () => {
   return (
     <>
       <div className="wrapper-container">
-        <div className="note-container">
+        <div className="note-container" style={{ backgroundColor: note.color }}>
           <div className="note-title flex flex-space-between">
             <input
               className="note-title-input"
@@ -78,6 +79,7 @@ const CreateNote = () => {
                   <option value="Low">Low</option>
                 </select>
               </div>
+              <ColorPalette note={note} setNote={setNote} />
             </div>
 
             <div className="right-navbar">

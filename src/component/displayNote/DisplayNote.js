@@ -18,7 +18,7 @@ const DisplayNote = ({ note }) => {
   return (
     <>
       <div className="wrapper-container">
-        <div className="note-container">
+        <div className="note-container" style={{ backgroundColor: note.color }}>
           <div className="note-title flex flex-space-between">
             <p>{note.title}</p>
             <p>
