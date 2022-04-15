@@ -14,3 +14,28 @@
 .icon-style {
   margin: 0 1rem 0 0;
 }
+
+.list-style {
+  font-size: 1.3rem;
+}
+
+.label-list-style {
+  margin: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.label-btn {
+  background-color: var(--default-color);
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.label-input {
+  outline: none;
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin: 0 0 0.5rem 0;
+}

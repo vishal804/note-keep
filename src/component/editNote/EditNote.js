@@ -17,7 +17,6 @@ const EditNote = () => {
     pinned: editItem.pinned,
     title: editItem.title,
     description: editItem.description,
-    tag: editItem.tag,
     priority: editItem.priority,
     color: editItem.color,
   });
@@ -70,16 +69,15 @@ const EditNote = () => {
                   onChange={(e) => {
                     setEditNote({
                       ...editNote,
-                      tag: e.target.value,
+                      label: e.target.value,
                     });
                   }}
                 >
-                  <option value="Label" hidden>
-                    {editItem.tag}
-                  </option>
-                  <option value="Home">Home</option>
-                  <option value="Work">Work</option>
-                  <option value="Personal">Personal</option>
+                  {noteState.labels.map((labelOption) => (
+                    <option value={labelOption} key={labelOption}>
+                      {labelOption}
+                    </option>
+                  ))}
                 </select>
                 <select
                   className="tag"

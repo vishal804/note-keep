@@ -33,7 +33,7 @@ const DisplayNote = ({ note }) => {
           <div className="note-function flex flex-space-between">
             <div className="left-navbar">
               <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
-                {note.tag}
+                {note.label}
               </div>
               <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
                 {note.priority}

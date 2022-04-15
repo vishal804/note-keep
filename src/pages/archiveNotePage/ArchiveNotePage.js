@@ -43,7 +43,7 @@ const ArchiveNotePage = () => {
                   <div className="note-function flex flex-space-between">
                     <div className="left-navbar">
                       <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
-                        {archive.tag}
+                        {archive.label}
                       </div>
                       <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
                         {archive.priority}

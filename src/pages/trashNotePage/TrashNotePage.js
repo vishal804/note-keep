@@ -33,7 +33,7 @@ const TrashNotePage = () => {
                   <div className="note-function flex flex-space-between">
                     <div className="left-navbar">
                       <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
-                        {trash.tag}
+                        {trash.label}
                       </div>
                       <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
                         {trash.priority}

@@ -9,7 +9,6 @@ const NoteProvider = ({ children }) => {
     pinned: false,
     title: "",
     description: "",
-    tag: "Label",
     priority: "Priority",
     color: "#ecf1f3",
   });
@@ -20,12 +19,12 @@ const NoteProvider = ({ children }) => {
       pinned: false,
       title: "",
       description: "",
-      tag: "Tag",
       priority: "Priority",
       color: "#ecf1f3",
     },
     notesTrash: [],
     notesArchive: [],
+    labels: ["Label", "Work", "Office", "Party", "Personal"],
   });
 
   return (

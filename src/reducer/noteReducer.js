@@ -42,6 +42,9 @@ const NotesReducer = (noteState, { type, payload }) => {
         notesArchive: payload.archivedData,
       };
 
+    case "CREATE_LABEL":
+      return { ...noteState, labels: [...noteState.labels, payload] };
+
     default:
       return noteState;
   }
