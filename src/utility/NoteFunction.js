@@ -13,7 +13,14 @@ export const addToNotesList = async (note, setNote, noteDispatch, token) => {
     );
     if (response.status === 201) {
       noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
-      setNote({ ...note, title: "", description: "" });
+      setNote({
+        ...note,
+        pinned: false,
+        title: "",
+        description: "",
+        priority: "Priority",
+        color: "#F7F7F7",
+      });
     }
   } catch (error) {
     console.log(error);
