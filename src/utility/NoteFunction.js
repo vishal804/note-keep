@@ -74,8 +74,10 @@ export const archiveNote = async (note, noteDispatch, token) => {
         },
       }
     );
-    noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
-    noteDispatch({ type: "ARCHIVE_NOTE", payload: response.data.archives });
+    if (response.status === 201) {
+      noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
+      noteDispatch({ type: "ARCHIVE_NOTE", payload: response.data.archives });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -88,11 +90,12 @@ export const trashArchiveNote = async (note, noteDispatch, token) => {
         authorization: token,
       },
     });
-
-    noteDispatch({
-      type: "TRASH_ARCHIVE_NOTE",
-      payload: response.data.archives,
-    });
+    if (response.status === 200) {
+      noteDispatch({
+        type: "TRASH_ARCHIVE_NOTE",
+        payload: response.data.archives,
+      });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -109,13 +112,15 @@ export const restoreArchiveNote = async (note, noteDispatch, token) => {
         },
       }
     );
-    noteDispatch({
-      type: "RESTORE_ARCHIVE_NOTE",
-      payload: {
-        notesData: response.data.notes,
-        archivedData: response.data.archives,
-      },
-    });
+    if (response.status === 200) {
+      noteDispatch({
+        type: "RESTORE_ARCHIVE_NOTE",
+        payload: {
+          notesData: response.data.notes,
+          archivedData: response.data.archives,
+        },
+      });
+    }
   } catch (error) {
     console.log(error);
   }
