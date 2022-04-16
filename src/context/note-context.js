@@ -9,8 +9,8 @@ const NoteProvider = ({ children }) => {
     pinned: false,
     title: "",
     description: "",
-    tag: "Label",
     priority: "Priority",
+    color: "#F7F7F7",
   });
   const [noteState, noteDispatch] = useReducer(NotesReducer, {
     notes: [],
@@ -19,11 +19,12 @@ const NoteProvider = ({ children }) => {
       pinned: false,
       title: "",
       description: "",
-      tag: "Tag",
       priority: "Priority",
+      color: "#F7F7F7",
     },
     notesTrash: [],
     notesArchive: [],
+    labels: ["Label", "Work", "Office", "Party", "Personal"],
   });
 
   return (

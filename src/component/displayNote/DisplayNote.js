@@ -1,8 +1,14 @@
 import React from "react";
 import { useNote } from "../../context/note-context";
+import { useAuth } from "../../context/auth-context";
+import { archiveNote, deleteNote } from "../../utility/NoteFunction";
 
 const DisplayNote = ({ note }) => {
   const { noteState, noteDispatch } = useNote();
+
+  const {
+    authState: { token },
+  } = useAuth();
 
   const editNoteHandler = () => {
     noteDispatch({ type: "SHOW_EDIT_BOX", payload: !noteState.isEdit });
@@ -12,7 +18,7 @@ const DisplayNote = ({ note }) => {
   return (
     <>
       <div className="wrapper-container">
-        <div className="note-container">
+        <div className="note-container" style={{ backgroundColor: note.color }}>
           <div className="note-title flex flex-space-between">
             <p>{note.title}</p>
             <p>
@@ -27,7 +33,7 @@ const DisplayNote = ({ note }) => {
           <div className="note-function flex flex-space-between">
             <div className="left-navbar">
               <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
-                {note.tag}
+                {note.label}
               </div>
               <div style={{ margin: "1rem", fontSize: "0.9rem" }}>
                 {note.priority}
@@ -39,6 +45,14 @@ const DisplayNote = ({ note }) => {
                 onClick={() => {
                   editNoteHandler();
                 }}
+              ></i>
+              <i
+                className="icon-style fas fa-trash"
+                onClick={() => deleteNote(note, noteDispatch, token)}
+              ></i>
+              <i
+                className="icon-style fas fa-archive"
+                onClick={() => archiveNote(note, noteDispatch, token)}
               ></i>
             </div>
           </div>

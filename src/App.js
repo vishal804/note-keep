@@ -2,7 +2,14 @@ import "./App.css";
 import { Header } from "./component";
 import { PrivateRoute } from "./PrivateRoute";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, LandingPage, Signin, Signup } from "./pages";
+import {
+  HomePage,
+  LandingPage,
+  Signin,
+  Signup,
+  ArchiveNotePage,
+  TrashNotePage,
+} from "./pages";
 import Mockman from "mockman-js";
 
 function App() {
@@ -15,6 +22,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route element={<PrivateRoute />}>
           <Route path="/homepage" element={<HomePage />} />
+          <Route path="/trash" element={<TrashNotePage />} />
+          <Route path="/archive" element={<ArchiveNotePage />} />
         </Route>
         <Route path="/mockman" element={<Mockman />} />
       </Routes>

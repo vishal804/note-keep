@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./createNote.css";
 import { useAuth } from "../../context/auth-context";
 import { useNote } from "../../context/note-context";
 import { addToNotesList } from "../../utility/NoteFunction";
+import { ColorPalette } from "../index";
 
 const CreateNote = () => {
-  const { note, setNote, noteDispatch } = useNote();
-
+  const { note, setNote, noteState, noteDispatch } = useNote();
+  const [label, setLabel] = useState("Label");
   const {
     authState: { token },
   } = useAuth();
 
+  const noteList = { ...note, label };
+
+  const addToNotes = () => {
+    addToNotesList(noteList, setNote, noteDispatch, token);
+  };
+
   return (
     <>
       <div className="wrapper-container">
-        <div className="note-container">
+        <div className="note-container" style={{ backgroundColor: note.color }}>
           <div className="note-title flex flex-space-between">
             <input
               className="note-title-input"
@@ -47,20 +54,15 @@ const CreateNote = () => {
               <div>
                 <select
                   className="tag"
-                  onChange={(e) =>
-                    setNote({
-                      ...note,
-                      tag: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setLabel(e.target.value)}
                 >
-                  <option value="Label" hidden>
-                    Label
-                  </option>
-                  <option value="Home">Home</option>
-                  <option value="Work">Work</option>
-                  <option value="Personal">Personal</option>
+                  {noteState.labels.map((labelOption) => (
+                    <option value={labelOption} key={labelOption}>
+                      {labelOption}
+                    </option>
+                  ))}
                 </select>
+
                 <select
                   className="tag"
                   onChange={(e) =>
@@ -78,15 +80,11 @@ const CreateNote = () => {
                   <option value="Low">Low</option>
                 </select>
               </div>
+              <ColorPalette note={note} setNote={setNote} />
             </div>
 
             <div className="right-navbar">
-              <button
-                className="btn"
-                onClick={() =>
-                  addToNotesList(note, setNote, noteDispatch, token)
-                }
-              >
+              <button className="btn" onClick={addToNotes}>
                 Add Note
               </button>
             </div>

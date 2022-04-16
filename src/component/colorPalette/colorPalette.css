@@ -1,0 +1,22 @@
+.color-palette-wrapper {
+  position: relative;
+  cursor: pointer;
+  margin: 0 0 0 1rem;
+}
+
+.color-palette {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  width: 15.5rem;
+  border-radius: 1rem;
+  border: 0.1rem solid var(--line-styling-color);
+}
+
+.palette-color {
+  border: 0.1rem solid var(--line-styling-color);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 3px;
+}
