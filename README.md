@@ -12,6 +12,7 @@
   - Create New Label
   - Archive Note
   - Trash Note
+  - Filter Note
 - Authentication
 
 ## Technologies Used
