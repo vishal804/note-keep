@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import "./auth.css";
 import axios from "axios";
 import { useAuth } from "../../context/auth-context";
-import "./auth.css";
+import { Link, useNavigate } from "react-router-dom";
+import { ErrorToast, SuccessToast } from "../../component";
 
 const Signup = () => {
   const [error, setError] = useState("");
@@ -42,9 +43,10 @@ const Signup = () => {
             },
           });
           navigate("/homepage");
+          SuccessToast("Login successful");
         }
       } catch (error) {
-        console.log("Error", error);
+        ErrorToast("Invalid username and password", error);
       }
     } else if (userCredentials.password.length <= 9) {
       setError("Password required altest 9 Character");

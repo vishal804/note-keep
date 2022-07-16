@@ -22,7 +22,7 @@ const Filter = () => {
             <input
               type="radio"
               name="sort-by-priority"
-              // id="priority"
+              id="priority"
               checked={
                 noteState.filters.sortByPriority === "LOW_TO_HIGH_PRIORITY"
               }
@@ -39,7 +39,7 @@ const Filter = () => {
             <input
               type="radio"
               name="sort-by-priority"
-              // id="priority"
+              id="priority"
               checked={
                 noteState.filters.sortByPriority === "HIGH_TO_LOW_PRIORITY"
               }
@@ -54,14 +54,13 @@ const Filter = () => {
           </div>
         </div>
 
-        {/* <div style={{border: "1px solid Black", backgroundColor:"blue"}}> */}
         <div>
           <p className="filter-title">Sort By</p>
           <div className="radiobtn">
             <input
               type="radio"
-              name="sortBy1"
-              // id="sortBy"
+              name="sortBy"
+              id="sortBy"
               checked={noteState.filters.sortBy === "NEWEST_FIRST"}
               onChange={() =>
                 noteDispatch({
@@ -75,8 +74,8 @@ const Filter = () => {
           <div className="radiobtn">
             <input
               type="radio"
-              name="sortBy1"
-              // id="sortBy"
+              name="sortBy"
+              id="sortBy"
               checked={noteState.filters.sortBy === "OLDEST_FIRST"}
               onChange={() =>
                 noteDispatch({

@@ -6,21 +6,25 @@ import { formatDate } from "../utils/authUtils";
  * */
 
 export const users = [
+  //
   {
     _id: uuid(),
-    firstName: "Adarsh",
-    lastName: "Balika",
-    email: "adarshbalik@gmail.com",
-    password: "adarshBalika123",
+    firstName: "MS",
+    lastName: "Dhoni",
+    username: "msdhoni",
+    email: "msdhoni@gmail.com",
+    password: "msdhoni",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
+  //
   {
     _id: uuid(),
-    firstName: "Adarsh",
-    lastName: "Balika",
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    firstName: "Steve",
+    lastName: "Roger",
+    username: "steveroger",
+    email: "steveroger@gmail.com",
+    password: "steveroger",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
