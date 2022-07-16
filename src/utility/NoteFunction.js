@@ -18,8 +18,9 @@ export const addToNotesList = async (note, setNote, noteDispatch, token) => {
         pinned: false,
         title: "",
         description: "",
-        priority: "Priority",
+        priority: "Low",
         color: "#F7F7F7",
+        noteCreatedAt: null,
       });
     }
   } catch (error) {

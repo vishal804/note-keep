@@ -1,3 +1,8 @@
+.page-container {
+  display: flex;
+  width: 89%;
+}
+
 .component-section {
   margin: 1rem 0;
 }

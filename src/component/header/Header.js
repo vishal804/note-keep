@@ -26,7 +26,7 @@ const Header = () => {
       <header>
         <nav className="navbar box-shadow">
           <div className="left-navbar">
-            <Link to="/">
+            <Link to="/homepage">
               <p>Note Keeper</p>
             </Link>
           </div>
