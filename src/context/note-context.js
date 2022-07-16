@@ -30,6 +30,7 @@ const NoteProvider = ({ children }) => {
       sortByPriority: "",
       sortBy: "",
     },
+    showNav: false,
   });
 
   return (

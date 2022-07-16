@@ -66,6 +66,12 @@ const NotesReducer = (noteState, { type, payload }) => {
         filters: { sortBy: payload },
       };
 
+    case "SHOWNAV":
+      return {
+        ...noteState,
+        showNav: payload,
+      };
+
     default:
       return noteState;
   }

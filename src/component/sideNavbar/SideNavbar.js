@@ -16,9 +16,21 @@ const SideNavbar = () => {
   };
 
   return (
-    <div className="aside" id="sidebar">
+    <div
+      className={`aside
+    ${noteState.showNav === true ? "width-250" : "width-0"}
+    `}
+    >
       <div className="sidenav">
         <ul className="list-subheading">
+          <li className="show">
+            <p
+              className="closebtn"
+              onClick={() => noteDispatch({ type: "SHOWNAV", payload: false })}
+            >
+              <i className="fas fa-times"></i>
+            </p>
+          </li>
           <li>
             <p className="list-style flex flex-justify-center">
               <Link to="/homepage">
