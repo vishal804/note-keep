@@ -41,7 +41,7 @@ const Signup = () => {
               token: response.data.encodedToken,
             },
           });
-          navigate("/");
+          navigate("/homepage");
         }
       } catch (error) {
         console.log("Error", error);
