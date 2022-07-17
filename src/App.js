@@ -1,5 +1,6 @@
 import "./App.css";
 import { Header } from "./component";
+import { ToastContainer } from "react-toastify";
 import { PrivateRoute } from "./PrivateRoute";
 import { Routes, Route } from "react-router-dom";
 import {
@@ -27,6 +28,7 @@ function App() {
         </Route>
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
+      <ToastContainer />
     </>
   );
 }

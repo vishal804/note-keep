@@ -29,7 +29,13 @@ const CreateNote = () => {
               placeholder="Title"
               autoFocus
               value={note.title}
-              onChange={(e) => setNote({ ...note, title: e.target.value })}
+              onChange={(e) =>
+                setNote({
+                  ...note,
+                  title: e.target.value,
+                  noteCreatedAt: new Date().getTime(),
+                })
+              }
             />
             <p onClick={(e) => setNote({ ...note, isPinned: true })}>
               <i className="fas fa-map-pin"></i>

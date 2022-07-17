@@ -45,6 +45,33 @@ const NotesReducer = (noteState, { type, payload }) => {
     case "CREATE_LABEL":
       return { ...noteState, labels: [...noteState.labels, payload] };
 
+    case "SORT_BY_PRIORITY":
+      return {
+        ...noteState,
+        filters: { sortByPriority: payload },
+      };
+
+    case "CLEAR_FILTERS":
+      return {
+        ...noteState,
+        filters: {
+          sortByPriority: "",
+          sortBy: "",
+        },
+      };
+
+    case "SORT_BY":
+      return {
+        ...noteState,
+        filters: { sortBy: payload },
+      };
+
+    case "SHOWNAV":
+      return {
+        ...noteState,
+        showNav: payload,
+      };
+
     default:
       return noteState;
   }

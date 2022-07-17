@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import "./auth.css";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
-import axios from "axios";
-import "./auth.css";
+import { ErrorToast, SuccessToast } from "../../component";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -15,8 +16,8 @@ const Signin = () => {
   const guestLogin = async () => {
     try {
       const response = await axios.post("/api/auth/login", {
-        email: "adarshbalika@gmail.com",
-        password: "adarshbalika",
+        email: "steveroger@gmail.com",
+        password: "steveroger",
       });
       localStorage.setItem("token", response.data.encodedToken);
       authDispatch({
@@ -27,8 +28,9 @@ const Signin = () => {
         },
       });
       navigate("/homepage");
+      SuccessToast("Login successful");
     } catch (error) {
-      console.log("Error", error);
+      ErrorToast("Invalid username and password", error);
     }
   };
 
@@ -48,8 +50,9 @@ const Signin = () => {
         },
       });
       navigate("/homepage");
+      SuccessToast("Login successful");
     } catch (error) {
-      console.log("Error", error);
+      ErrorToast("Invalid username and password", error);
     }
   };
 
