@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ErrorToast, InfoToast } from "../component";
 
 export const addToNotesList = async (note, setNote, noteDispatch, token) => {
   try {
@@ -18,12 +19,14 @@ export const addToNotesList = async (note, setNote, noteDispatch, token) => {
         pinned: false,
         title: "",
         description: "",
-        priority: "Priority",
+        priority: "Low",
         color: "#F7F7F7",
+        noteCreatedAt: null,
       });
     }
+    InfoToast("Note Created successfully");
   } catch (error) {
-    console.log(error);
+    ErrorToast("seems to be error", error);
   }
 };
 
@@ -42,8 +45,9 @@ export const updateNote = async (editNote, noteState, noteDispatch, token) => {
       noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
       noteDispatch({ type: "SHOW_EDIT_BOX", payload: !noteState.isEdit });
     }
+    InfoToast("Note updated successfully");
   } catch (error) {
-    console.log(error);
+    ErrorToast("seems to be error", error);
   }
 };
 
@@ -58,8 +62,9 @@ export const deleteNote = async (note, noteDispatch, token) => {
       noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
       noteDispatch({ type: "TRASH_NOTE", payload: note });
     }
+    InfoToast("Note moved to trash");
   } catch (error) {
-    console.log(error);
+    ErrorToast("seems to be error", error);
   }
 };
 
@@ -78,8 +83,9 @@ export const archiveNote = async (note, noteDispatch, token) => {
       noteDispatch({ type: "ADD_NOTE", payload: response.data.notes });
       noteDispatch({ type: "ARCHIVE_NOTE", payload: response.data.archives });
     }
+    InfoToast("Note moved to archive");
   } catch (error) {
-    console.log(error);
+    ErrorToast("seems to be error", error);
   }
 };
 
@@ -97,7 +103,7 @@ export const trashArchiveNote = async (note, noteDispatch, token) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    ErrorToast("seems to be error", error);
   }
 };
 
@@ -122,6 +128,6 @@ export const restoreArchiveNote = async (note, noteDispatch, token) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    ErrorToast("seems to be error", error);
   }
 };
