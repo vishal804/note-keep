@@ -3,7 +3,7 @@ import "./createNote.css";
 import { useAuth } from "../../context/auth-context";
 import { useNote } from "../../context/note-context";
 import { addToNotesList } from "../../utility/NoteFunction";
-import { ColorPalette } from "../index";
+import { ColorPalette, ErrorToast } from "../index";
 
 const CreateNote = () => {
   const { note, setNote, noteState, noteDispatch } = useNote();
@@ -15,7 +15,11 @@ const CreateNote = () => {
   const noteList = { ...note, label };
 
   const addToNotes = () => {
-    addToNotesList(noteList, setNote, noteDispatch, token);
+    if (note.title.trim() === "" && note.description.trim() === "") {
+      ErrorToast("Title or Descrption required");
+    } else {
+      addToNotesList(noteList, setNote, noteDispatch, token);
+    }
   };
 
   return (
