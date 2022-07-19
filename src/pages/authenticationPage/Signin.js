@@ -65,7 +65,6 @@ const Signin = () => {
             password: "",
           }}
           validate={(values) => {
-            console.log({ values });
             const errors = {};
             if (!values.password.trim()) {
               errors.password = "Required";
