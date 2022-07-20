@@ -17,11 +17,6 @@
   margin: 1rem 0;
 }
 
-/* .login-store .btn {
-    background-color: transparent;
-    background-color: aqua;
-  }
-   */
 .create-account {
   margin: 1rem 0;
 }
@@ -39,4 +34,8 @@
 
 .btn-lg {
   padding: 0.7rem;
+}
+
+.error-message {
+  color: var(--toastify-color-error);
 }
