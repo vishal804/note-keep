@@ -5,9 +5,11 @@ import { authReducer } from "../reducer/authReducer";
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+  const user = localStorage.getItem("user") || "";
+  const token = localStorage.getItem("token") || "";
   const [authState, authDispatch] = useReducer(authReducer, {
-    user: "",
-    token: "",
+    user,
+    token,
   });
 
   return (

@@ -11,10 +11,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   const logoutHandler = () => {
-    navigate("/");
-    localStorage.removeItem("userAuthToken");
-    localStorage.removeItem("user");
     authDispatch({ type: "LOGOUT" });
+    localStorage.clear();
+    navigate("/");
   };
 
   const loginHandler = () => {
@@ -29,10 +28,10 @@ const Header = () => {
         <nav className="navbar box-shadow">
           <div className="left-navbar">
             <span
-              class="show"
+              className="show"
               onClick={() => noteDispatch({ type: "SHOWNAV", payload: true })}
             >
-              <i class="fas fa-bars"></i>
+              <i className="fas fa-bars"></i>
             </span>
             <Link to="/homepage">
               <p className="logo">Note Keeper</p>

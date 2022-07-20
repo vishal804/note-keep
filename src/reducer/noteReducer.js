@@ -48,7 +48,13 @@ const NotesReducer = (noteState, { type, payload }) => {
     case "SORT_BY_PRIORITY":
       return {
         ...noteState,
-        filters: { sortByPriority: payload },
+        filters: { ...noteState.filters, sortByPriority: payload },
+      };
+
+    case "SORT_BY":
+      return {
+        ...noteState,
+        filters: { ...noteState.filters, sortBy: payload },
       };
 
     case "CLEAR_FILTERS":
@@ -58,12 +64,6 @@ const NotesReducer = (noteState, { type, payload }) => {
           sortByPriority: "",
           sortBy: "",
         },
-      };
-
-    case "SORT_BY":
-      return {
-        ...noteState,
-        filters: { sortBy: payload },
       };
 
     case "SHOWNAV":
