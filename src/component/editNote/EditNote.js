@@ -32,7 +32,6 @@ const EditNote = () => {
             <input
               className="note-title-input "
               type="text"
-              // placeholder={editItem.title}
               autoFocus
               value={editNote.title}
               onChange={(e) => {
