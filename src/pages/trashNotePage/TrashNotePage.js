@@ -21,9 +21,6 @@ const TrashNotePage = () => {
                 >
                   <div className="note-title flex flex-space-between">
                     <p>{trash.title}</p>
-                    <p>
-                      <i className="fas fa-map-pin"></i>
-                    </p>
                   </div>
 
                   <div className="note-content">

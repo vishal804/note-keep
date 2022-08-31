@@ -21,9 +21,6 @@ const DisplayNote = ({ note }) => {
         <div className="note-container" style={{ backgroundColor: note.color }}>
           <div className="note-title flex flex-space-between">
             <p>{note.title}</p>
-            <p>
-              <i className="fas fa-map-pin"></i>
-            </p>
           </div>
 
           <div className="note-content">

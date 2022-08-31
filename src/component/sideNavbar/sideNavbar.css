@@ -2,9 +2,6 @@
   flex: 0 0 19.5rem;
 }
 
-.list-subheading {
-  text-align: center;
-}
 .list-subheading li {
   font-size: 1.6rem;
   font-weight: 900;
@@ -25,20 +22,29 @@
   font-size: 0.9rem;
 }
 
-.label-btn {
-  background-color: var(--default-color);
-  color: var(--secondary-text-color);
-  cursor: pointer;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 5px;
+.create-label-row {
+  margin: 1rem 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.label-input {
+.create-label-row input {
+  width: 100%;
   outline: none;
-  border-radius: 5px;
-  padding: 0.3rem;
-  margin: 0 0 0.5rem 0;
+  resize: none;
+  border: none;
+  background-color: var(--secondary-text-color);
+  height: 2rem;
+  padding: 1rem;
+}
+
+.label-btn {
+  padding: 0.5rem;
+  background-color: var(--default-color);
+  border: none;
+  color: var(--secondary-text-color);
+  cursor: pointer;
 }
 
 .width-250 {
@@ -47,6 +53,18 @@
 
 .width-0 {
   width: 0;
+}
+
+.dispaly {
+  display: block;
+}
+
+.dispaly-none {
+  display: none;
+}
+
+.label-box {
+  margin: 0 0 0 2rem;
 }
 
 @media only screen and (max-width: 768px) {

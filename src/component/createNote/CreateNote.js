@@ -41,9 +41,6 @@ const CreateNote = () => {
                 })
               }
             />
-            <p onClick={(e) => setNote({ ...note, isPinned: true })}>
-              <i className="fas fa-map-pin"></i>
-            </p>
           </div>
 
           <div className="note-content">

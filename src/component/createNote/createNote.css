@@ -21,6 +21,7 @@
   border: none;
   background-color: unset;
   width: 100%;
+  resize: none;
 }
 
 .tag {
