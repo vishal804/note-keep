@@ -32,8 +32,9 @@ const EditNote = () => {
             <input
               className="note-title-input "
               type="text"
-              placeholder={editItem.title}
+              // placeholder={editItem.title}
               autoFocus
+              value={editNote.title}
               onChange={(e) => {
                 setEditNote({
                   ...editNote,
@@ -41,9 +42,6 @@ const EditNote = () => {
                 });
               }}
             />
-            <p>
-              <i className="fas fa-map-pin"></i>
-            </p>
           </div>
 
           <div className="note-content">
@@ -51,7 +49,7 @@ const EditNote = () => {
               className="note-description"
               rows="5"
               type="text"
-              placeholder={editItem.description}
+              value={editNote.description}
               onChange={(e) => {
                 setEditNote({
                   ...editNote,

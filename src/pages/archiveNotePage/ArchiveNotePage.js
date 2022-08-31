@@ -31,9 +31,6 @@ const ArchiveNotePage = () => {
                 >
                   <div className="note-title flex flex-space-between">
                     <p>{archive.title}</p>
-                    <p>
-                      <i className="fas fa-map-pin"></i>
-                    </p>
                   </div>
 
                   <div className="note-content">
