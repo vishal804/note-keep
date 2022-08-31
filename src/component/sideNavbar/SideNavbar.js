@@ -7,6 +7,7 @@ const SideNavbar = () => {
   const { noteState, noteDispatch } = useNote();
 
   const [createLabel, setCreateLabel] = useState("");
+  const [labelBox, setLabelBox] = useState(false);
 
   const createNewLabel = () => {
     if (createLabel !== "") {
@@ -32,50 +33,55 @@ const SideNavbar = () => {
             </p>
           </li>
           <li>
-            <p className="list-style flex flex-justify-center">
+            <p className="list-style flex">
               <Link to="/homepage">
                 <i className="icon-style fas fa-home"></i>Home
               </Link>
             </p>
           </li>
           <li>
-            <p className="list-style flex flex-justify-center">
+            <p className="list-style flex">
               <Link to="/archive">
                 <i className="icon-style fas fa-archive"></i>Archive
               </Link>
             </p>
           </li>
           <li>
-            <p className="list-style flex flex-justify-center">
+            <p className="list-style flex">
               <Link to="/trash">
                 <i className="icon-style fas fa-trash"></i>Trash
               </Link>
             </p>
           </li>
           <li>
-            <p className="list-style flex flex-justify-center">
-              <Link to="/homepage">
-                <i className="icon-style fas fa-tag"></i>Labels
-              </Link>
+            <p
+              className="list-style flex"
+              onClick={() => setLabelBox(!labelBox)}
+            >
+              <i className="icon-style fas fa-tag"></i>Labels
             </p>
-            {noteState.labels.map((label) => (
-              <p key={label} className="label-list-style">
-                {label}
-              </p>
-            ))}
-          </li>
+            <div
+              className={`label-box ${labelBox ? "dispaly" : "dispaly-none"}`}
+            >
+              {noteState.labels.map((label) => (
+                <p key={label} className="label-list-style">
+                  {label}
+                </p>
+              ))}
 
-          <div className="flex-row create-label-row">
-            <input
-              className="label-input"
-              placeholder="create label..."
-              value={createLabel}
-              onChange={(e) => setCreateLabel(e.target.value)}
-            />
-            <button className="label-btn" onClick={createNewLabel}>
-              Create New Label
-            </button>
-          </div>
+              <div className="create-label-row">
+                <input
+                  className="label-input"
+                  placeholder="Create label..."
+                  value={createLabel}
+                  onChange={(e) => setCreateLabel(e.target.value)}
+                />
+                <button className="label-btn" onClick={createNewLabel}>
+                  Create
+                </button>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
